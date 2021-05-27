@@ -1,9 +1,11 @@
+import Table from 'react-bootstrap/Table'
+
 function ExpenseTable () {
   return (
     <section>
-      <table id='expense-table'>
+      <Table id='expense-table' striped bordered hover>
         <thead>
-          <tr classNam='table-header'>
+          <tr >
             <th>Date</th>
             <th>Amount</th>
             <th>Expense Item</th>
@@ -13,7 +15,7 @@ function ExpenseTable () {
         </thead>
 
         <tbody id='list-items'></tbody>
-      </table>
+      </Table>
     </section>
   )
 }

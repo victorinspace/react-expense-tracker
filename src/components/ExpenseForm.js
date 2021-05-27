@@ -1,18 +1,48 @@
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button';
+
 function ExpenseForm () {
   return (
-    <section>
-      <form id='expense-form'>
-        <label for='date'>Date:</label>
-        <input id='date' type='date' className='form-input' autoFocus required />
-        <label for='amount'>Amount:</label>
-        <input id='amount' type='number' className='form-input' required />
-        <label for='item'>Item:</label>
-        <input id='item' type='text' className='form-input' required />
-        <label for='comment'>Comment (Optional):</label>
-        <input id='comment' type='text' className='form-input' />
-        <button type='submit' className='form-button'>Add Expense Item</button>
-      </form>
-    </section>
+    <Container>
+
+      <Form id='expense-form'>
+        <Form.Row>
+          <Form.Group>
+            <Col>
+              <Form.Label for='date'>Date:</Form.Label>
+              <Form.Control id='date' type='date' required />
+            </Col>
+          </Form.Group>
+          <Form.Group>
+            <Col>
+              <Form.Label for='amount'>Amount:</Form.Label>
+              <Form.Control id='amount' type='number' required />
+            </Col>
+          </Form.Group>
+          <Form.Group>
+            <Col>
+              <Form.Label for='item'>Item:</Form.Label>
+              <Form.Control id='item' type='text' required />
+            </Col>
+          </Form.Group>
+          <Form.Group>
+            <Col>
+              <Form.Label for='comment'>Comment (Optional):</Form.Label>
+              <Form.Control id='comment' type='text' />
+            </Col>
+          </Form.Group>
+
+          <Form.Group>
+            <Col>
+              <Button type='submit' variant='primary' disabled>Add Expense</Button>
+            </Col>
+          </Form.Group>
+        </Form.Row>
+      </Form>
+
+    </Container>
   )
 }
 
