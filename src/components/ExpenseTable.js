@@ -22,10 +22,12 @@ function ExpenseTable ( props ) {
         </thead>
 
         <tbody id='list-items'>
-          <th>{expenseData.date}</th>
-          <th>{expenseData.amount}</th>
-          <th>{expenseData.expenseItem}</th>
-          <th>{expenseData.comment}</th>
+          <tr>
+            <td>{expenseData.date}</td>
+            <td>{expenseData.amount}</td>
+            <td>{expenseData.expenseItem}</td>
+            <td>{expenseData.comment}</td>
+          </tr>
         </tbody>
       </Table>
     </section>

@@ -11,10 +11,10 @@ class ExpenseForm extends React.Component {
     super( props );
     this.state = {
       form: {
-        date: '2018-04-12',
-        amount: null,
-        item: 'Pillow',
-        comment: 'Target'
+        date: '',
+        amount: 0,
+        item: '',
+        comment: ''
       }
     };
 
@@ -27,7 +27,12 @@ class ExpenseForm extends React.Component {
     let name = target.name;
     let value = target.value;
 
-    this.setState( { [name]: value } )
+    this.setState( {
+      form: {
+        ...this.state.form,
+        [name]: value
+      }
+    } );
   }
 
   handleSubmit ( event ) {
@@ -46,6 +51,7 @@ class ExpenseForm extends React.Component {
                 <Form.Control
                   name='date'
                   type='date'
+                  placeholder=''
                   value={this.state.form.date}
                   onChange={this.handleChange}
                 />
@@ -57,6 +63,7 @@ class ExpenseForm extends React.Component {
                 <Form.Control
                   name='amount'
                   type='number'
+                  placeholder=''
                   value={this.state.form.amount}
                   onChange={this.handleChange}
                 />
@@ -67,6 +74,7 @@ class ExpenseForm extends React.Component {
                 <Form.Label htmlFor='item'>Item:</Form.Label>
                 <Form.Control
                   type='text'
+                  placeholder=''
                   name='item'
                   value={this.state.form.item}
                   onChange={this.handleChange}
@@ -79,6 +87,7 @@ class ExpenseForm extends React.Component {
                 <Form.Control
                   name='comment'
                   type='text'
+                  placeholder=''
                   value={this.state.form.comment}
                   onChange={this.handleChange}
                 />
