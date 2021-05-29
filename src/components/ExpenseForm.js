@@ -9,19 +9,30 @@ import React from 'react';
 class ExpenseForm extends React.Component {
   constructor( props ) {
     super( props );
-    this.state = { value: '' };
+    this.state = {
+      form: {
+        date: '2018-04-12',
+        amount: null,
+        item: 'Pillow',
+        comment: 'Target'
+      }
+    };
 
     this.handleChange = this.handleChange.bind( this );
     this.handleSubmit = this.handleSubmit.bind( this );
   }
 
   handleChange ( event ) {
-    this.setState( { value: event.target.value } )
+    let target = event.target;
+    let name = target.name;
+    let value = target.value;
+
+    this.setState( { [name]: value } )
   }
 
   handleSubmit ( event ) {
-    alert( `submitted ${this.state.value}` );
     event.preventDefault();
+    alert( `submitted ${this.state.form.date}, ${this.state.form.item}, ${this.state.form.date}, ${this.state.form.comment}` );
   }
 
   render () {
@@ -33,39 +44,52 @@ class ExpenseForm extends React.Component {
               <Col>
                 <Form.Label htmlFor='date'>Date:</Form.Label>
                 <Form.Control
-                  id='date'
+                  name='date'
                   type='date'
-                  value={this.state.value}
+                  value={this.state.form.date}
                   onChange={this.handleChange}
-                  required
                 />
               </Col>
             </Form.Group>
-            {/* <Form.Group>
+            <Form.Group>
               <Col>
                 <Form.Label htmlFor='amount'>Amount:</Form.Label>
-                <Form.Control id='amount' type='number' required />
+                <Form.Control
+                  name='amount'
+                  type='number'
+                  value={this.state.form.amount}
+                  onChange={this.handleChange}
+                />
               </Col>
             </Form.Group>
             <Form.Group>
               <Col>
                 <Form.Label htmlFor='item'>Item:</Form.Label>
-                <Form.Control id='item' type='text' required />
+                <Form.Control
+                  type='text'
+                  name='item'
+                  value={this.state.form.item}
+                  onChange={this.handleChange}
+                />
               </Col>
             </Form.Group>
             <Form.Group>
               <Col>
                 <Form.Label htmlFor='comment'>Comment (Optional):</Form.Label>
-                <Form.Control id='comment' type='text' />
+                <Form.Control
+                  name='comment'
+                  type='text'
+                  value={this.state.form.comment}
+                  onChange={this.handleChange}
+                />
               </Col>
-            </Form.Group> */}
+            </Form.Group>
 
             <Col>
-              <Button type='submit' variant='primary' >Add Expense</Button>
+              <Button type='submit' variant='primary'>Add Expense</Button>
             </Col>
           </Form.Row>
         </Form>
-
       </Container>
     )
   }

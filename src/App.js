@@ -8,13 +8,13 @@ import ExpenseTable from './components/ExpenseTable.js';
 function App () {
   return (
     <Container>
-      <Row className='justify-content-lg-center'>
+      <Row className='justify-content-sm-center'>
         <h1>
           React Expense Tracker
         </h1>
       </Row>
 
-      <Row>
+      <Row >
         <Col>
           <ExpenseForm />
         </Col>
