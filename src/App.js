@@ -1,9 +1,6 @@
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col'
-
+import { Container, Row } from 'react-bootstrap';
 import ExpenseForm from './components/ExpenseForm.js';
-import ExpenseTable from './components/ExpenseTable.js';
+// import ExpenseTable from './components/ExpenseTable.js';
 
 function App () {
   return (
@@ -14,17 +11,8 @@ function App () {
         </h1>
       </Row>
 
-      <Row >
-        <Col>
-          <ExpenseForm />
-        </Col>
-      </Row>
-
-      <Row>
-        <Col>
-          <ExpenseTable />
-        </Col>
-      </Row>
+      <ExpenseForm />
+      {/* <ExpenseTable /> */}
     </Container>
   );
 }

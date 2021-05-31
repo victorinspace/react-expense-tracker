@@ -1,37 +1,52 @@
-import Table from 'react-bootstrap/Table'
+import React from 'react';
+import { Container, Col, Row, Button } from 'react-bootstrap';
 
-const expenseData = {
-  date: '10 / 24 / 21',
-  amount: 123,
-  expenseItem: 'Sofa',
-  comment: 'Thrift store.'
-}
+import Table from 'react-bootstrap/Table';
 
-function ExpenseTable ( props ) {
-  return (
-    <section>
-      <Table id='expense-table' striped bordered hover>
-        <thead>
-          <tr >
-            <th>Date</th>
-            <th>Amount</th>
-            <th>Expense Item</th>
-            <th>Comments</th>
-            <th></th>
-          </tr>
-        </thead>
+class ExpenseTable extends React.Component {
+  constructor( props ) {
+    super( props );
 
-        <tbody id='list-items'>
-          <tr>
-            <td>{expenseData.date}</td>
-            <td>{expenseData.amount}</td>
-            <td>{expenseData.expenseItem}</td>
-            <td>{expenseData.comment}</td>
-          </tr>
-        </tbody>
-      </Table>
-    </section>
-  )
+    this.state = {
+      message: "",
+      items: []
+    }
+  }
+
+  render () {
+    return (
+      <Container>
+        <Row>
+          <Col>
+            <Table id='expense-table' striped bordered hover>
+              <thead>
+                <tr >
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Expense Item</th>
+                  <th>Comments</th>
+                  <th></th>
+                </tr>
+              </thead>
+
+              <tbody id='list-items'>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <Button type='submit'>delete</Button>
+
+                  </td>
+                </tr>
+              </tbody>
+            </Table>
+          </Col>
+        </Row>
+      </Container>
+    )
+  }
 }
 
 export default ExpenseTable;
