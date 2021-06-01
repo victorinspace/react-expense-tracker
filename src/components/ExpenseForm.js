@@ -1,66 +1,53 @@
 import React from 'react';
-import { Container, Col, Row, Form, Button, Table } from 'react-bootstrap';
-// import ExpenseItem from './ExpenseItem';
-
-// let expenseDataArray = [{}];
+import { Container, Col, Row, Form, Button } from 'react-bootstrap';
+import ExpenseTable from './ExpenseTable';
 
 class ExpenseForm extends React.Component {
   constructor( props ) {
     super( props );
     this.state = {
-      form: [
-        {
-          id: 1,
-          date: '',
-          amount: 0,
-          item: '',
-          comment: ''
-        }
-      ]
+      date: '',
+      amount: 0,
+      item: '',
+      comment: '',
+      expenses: []
     };
 
     this.handleChange = this.handleChange.bind( this );
     this.handleSubmit = this.handleSubmit.bind( this );
-    // this.addExpenseToTable = this.addExpenseToTable.bind( this );
   }
 
-  // expense = expenseDataArray.map( item => )
+  componentDidMount () {
+    console.log( 'form:', this.state.form );
+    console.log( 'id', Date.now() )
+  }
 
-  handleChange ( event ) {
-    let target = event.target;
-    let name = target.name;
-    let value = target.value;
-
+  handleChange ( e ) {
+    const { name, value } = e.target;
+    console.log( 'name: ', name, 'value: ', value );
     this.setState( {
-      form: {
-        ...this.state.form,
-        [name]: value
-      }
-    } );
+      [name]: value
+    } )
   }
 
   handleSubmit ( event ) {
     event.preventDefault();
-    console.log( `submitted: ${this.state.form.date}, ${this.state.form.item}, ${this.state.form.date}, ${this.state.form.comment}` );
 
-  }
-
-  renderExpenseItem () {
-    return this.state.form.map( ( expenseItem, index ) => {
-      const { id, date, amount, item, comment } = expenseItem;
-      return (
-        <tr key={id}>
-          <td>{date}</td>
-          <td>{amount}</td>
-          <td>{item}</td>
-          <td>{comment}</td>
-          <td>
-            <Button type='submit'>delete</Button>
-          </td>
-        </tr>
-      )
+    const expenseItem = {
+      id: Date.now(),
+      date: this.state.date,
+      amount: this.state.amount,
+      item: this.state.item,
+      comment: this.state.comment,
     }
-    );
+
+    this.setState( {
+      expenses: [...this.state.expenses, expenseItem],
+      date: '',
+      amount: 0,
+      item: '',
+      comment: ''
+    } )
   }
 
   render () {
@@ -71,36 +58,39 @@ class ExpenseForm extends React.Component {
             <Form.Row>
               <Col>
                 <Form.Group>
-                  <Form.Label htmlFor='date'>Date:</Form.Label>
+                  <Form.Label htmlFor='date'>*Date:</Form.Label>
                   <Form.Control
                     name='date'
                     type='date'
                     placeholder=''
-                    value={this.state.form.date}
+                    value={this.state.date}
                     onChange={this.handleChange}
+                    required
                   />
                 </Form.Group>
               </Col>
               <Col>
                 <Form.Group>
-                  <Form.Label htmlFor='amount'>Amount:</Form.Label>
+                  <Form.Label htmlFor='amount'>*Amount:</Form.Label>
                   <Form.Control
                     name='amount'
                     type='number'
                     placeholder=''
-                    value={this.state.form.amount}
+                    value={this.state.amount}
                     onChange={this.handleChange}
+                    required
                   />
                 </Form.Group>
               </Col>
               <Col>
                 <Form.Group>
-                  <Form.Label htmlFor='item'>Item:</Form.Label>
+                  <Form.Label htmlFor='item'>*Item:</Form.Label>
                   <Form.Control
                     placeholder=''
                     name='item'
-                    value={this.state.form.item}
+                    value={this.state.item}
                     onChange={this.handleChange}
+                    required
                   />
                 </Form.Group>
               </Col>
@@ -110,12 +100,11 @@ class ExpenseForm extends React.Component {
                   <Form.Control
                     name='comment'
                     placeholder=''
-                    value={this.state.form.comment}
+                    value={this.state.comment}
                     onChange={this.handleChange}
                   />
                 </Form.Group>
               </Col>
-
               <Col>
                 <Button type='submit' variant='primary'>Add Expense</Button>
               </Col>
@@ -123,25 +112,7 @@ class ExpenseForm extends React.Component {
           </Form>
         </Row>
 
-        <Row>
-          <Col>
-            <Table striped bordered hover>
-              <thead>
-                <tr >
-                  <th>Date</th>
-                  <th>Amount</th>
-                  <th>Expense Item</th>
-                  <th>Comments</th>
-                  <th></th>
-                </tr>
-              </thead>
-
-              <tbody>
-                {this.renderExpenseItem()}
-              </tbody>
-            </Table>
-          </Col>
-        </Row>
+        <ExpenseTable expenses={this.state.expenses} />
       </Container>
     )
   }

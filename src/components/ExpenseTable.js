@@ -1,52 +1,45 @@
 import React from 'react';
-import { Container, Col, Row, Button } from 'react-bootstrap';
+import { Container, Col, Row, Button, Table } from 'react-bootstrap';
 
-import Table from 'react-bootstrap/Table';
+const ExpenseTable = ( props ) => {
+  console.log( 'props: ', props );
 
-class ExpenseTable extends React.Component {
-  constructor( props ) {
-    super( props );
+  return (
+    <Container>
+      <Row>
+        <Col>
+          <Table striped bordered hover>
+            <thead>
+              <tr >
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Expense Item</th>
+                <th>Comments</th>
+                <th></th>
+              </tr>
+            </thead>
 
-    this.state = {
-      message: "",
-      items: []
-    }
-  }
-
-  render () {
-    return (
-      <Container>
-        <Row>
-          <Col>
-            <Table id='expense-table' striped bordered hover>
-              <thead>
-                <tr >
-                  <th>Date</th>
-                  <th>Amount</th>
-                  <th>Expense Item</th>
-                  <th>Comments</th>
-                  <th></th>
-                </tr>
-              </thead>
-
-              <tbody id='list-items'>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td>
-                    <Button type='submit'>delete</Button>
-
-                  </td>
-                </tr>
-              </tbody>
-            </Table>
-          </Col>
-        </Row>
-      </Container>
-    )
-  }
+            <tbody>
+              {props.expenses.map( ( expenseItem ) => {
+                const { id, date, amount, item, comment } = expenseItem;
+                return (
+                  <tr key={id}>
+                    <td>{date}</td>
+                    <td>{amount}</td>
+                    <td>{item}</td>
+                    <td>{comment}</td>
+                    <td>
+                      <Button type='submit' variant='danger'>delete</Button>
+                    </td>
+                  </tr>
+                )
+              } )}
+            </tbody>
+          </Table>
+        </Col>
+      </Row>
+    </Container>
+  )
 }
 
 export default ExpenseTable;
