@@ -55,9 +55,9 @@ class ExpenseForm extends React.Component {
     const removedItem = this.state.expenses.filter( expense => expense.id !== id );
     console.log( 'Removed item: ', removedItem );
 
-    // this.setState( {
-    //   expenses: removedItem
-    // } )
+    this.setState( {
+      expenses: removedItem
+    } )
   }
 
   render () {

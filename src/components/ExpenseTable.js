@@ -2,7 +2,6 @@ import React from 'react';
 import { Container, Col, Row, Button, Table } from 'react-bootstrap';
 
 const ExpenseTable = ( props ) => {
-  debugger;
   console.log( 'props: ', props );
 
   return (
@@ -30,7 +29,7 @@ const ExpenseTable = ( props ) => {
                     <td>{item}</td>
                     <td>{comment}</td>
                     <td>
-                      <Button onClick={props.delete( id )} type='submit' variant='danger'>delete</Button>
+                      <Button onClick={() => props.delete( id )} type='submit' variant='danger'>delete</Button>
                     </td>
                   </tr>
                 )
