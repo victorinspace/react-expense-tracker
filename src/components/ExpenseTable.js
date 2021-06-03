@@ -4,6 +4,22 @@ import { Container, Col, Row, Button, Table } from 'react-bootstrap';
 const ExpenseTable = ( props ) => {
   console.log( 'props: ', props );
 
+  // const deleteItem = ( id ) => {
+  //   console.log( 'delete' );
+  //   // const { id, date, amount, item, comment } = expenseItem;
+
+  //   const removedItem = props.expenses.filter( expense => expense.id !== id );
+
+  //   console.log( removedItem );
+
+  //   // if the expense ID matches the id passed in
+  //   // then filter that out. --> this will return all items
+  //   // without the matched item.
+
+  //   // then update state
+
+  // }
+
   return (
     <Container>
       <Row>
@@ -29,7 +45,7 @@ const ExpenseTable = ( props ) => {
                     <td>{item}</td>
                     <td>{comment}</td>
                     <td>
-                      <Button type='submit' variant='danger'>delete</Button>
+                      <Button onClick={props.deleteItem} type='submit' variant='danger'>delete</Button>
                     </td>
                   </tr>
                 )

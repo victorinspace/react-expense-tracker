@@ -15,6 +15,7 @@ class ExpenseForm extends React.Component {
 
     this.handleChange = this.handleChange.bind( this );
     this.handleSubmit = this.handleSubmit.bind( this );
+    this.deleteItem = this.deleteItem.bind( this );
   }
 
   componentDidMount () {
@@ -48,6 +49,20 @@ class ExpenseForm extends React.Component {
       item: '',
       comment: ''
     } )
+  }
+
+  deleteItem ( id ) {
+    const removedItem = this.state.expenses.filter( expense => expense.id !== id );
+
+    console.log( removedItem );
+
+    // if the expense ID matches the id passed in
+    // then filter that out. --> this will return all items
+    // without the matched item.
+
+    // this.setState({
+    //   expenses: removedItem
+    // })
   }
 
   render () {
@@ -112,7 +127,7 @@ class ExpenseForm extends React.Component {
           </Form>
         </Row>
 
-        <ExpenseTable expenses={this.state.expenses} />
+        <ExpenseTable expenses={this.state.expenses} delete={( this.state.deleteItem )} />
       </Container>
     )
   }
