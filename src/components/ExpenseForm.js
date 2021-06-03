@@ -53,16 +53,11 @@ class ExpenseForm extends React.Component {
 
   deleteItem ( id ) {
     const removedItem = this.state.expenses.filter( expense => expense.id !== id );
+    console.log( 'Removed item: ', removedItem );
 
-    console.log( removedItem );
-
-    // if the expense ID matches the id passed in
-    // then filter that out. --> this will return all items
-    // without the matched item.
-
-    // this.setState({
+    // this.setState( {
     //   expenses: removedItem
-    // })
+    // } )
   }
 
   render () {
@@ -127,7 +122,7 @@ class ExpenseForm extends React.Component {
           </Form>
         </Row>
 
-        <ExpenseTable expenses={this.state.expenses} delete={( this.state.deleteItem )} />
+        <ExpenseTable expenses={this.state.expenses} delete={( this.deleteItem )} />
       </Container>
     )
   }
