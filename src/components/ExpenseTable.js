@@ -5,7 +5,7 @@ const ExpenseTable = ( props ) => {
   console.log( 'props: ', props );
 
   return (
-    <Container>
+    <div>
       <Row>
         <Col>
           <Table striped bordered hover>
@@ -25,7 +25,7 @@ const ExpenseTable = ( props ) => {
                 return (
                   <tr key={id}>
                     <td>{date}</td>
-                    <td>{amount}</td>
+                    <td>$ {amount}</td>
                     <td>{item}</td>
                     <td>{comment}</td>
                     <td>
@@ -38,7 +38,7 @@ const ExpenseTable = ( props ) => {
           </Table>
         </Col>
       </Row>
-    </Container>
+    </div>
   )
 }
 

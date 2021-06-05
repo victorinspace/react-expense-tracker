@@ -63,64 +63,64 @@ class ExpenseForm extends React.Component {
   render () {
     return (
       <Container>
-        <Row>
-          <Form id='expense-form' onSubmit={this.handleSubmit}>
-            <Form.Row>
-              <Col>
-                <Form.Group>
-                  <Form.Label htmlFor='date'>*Date:</Form.Label>
-                  <Form.Control
-                    name='date'
-                    type='date'
-                    placeholder=''
-                    value={this.state.date}
-                    onChange={this.handleChange}
-                    required
-                  />
-                </Form.Group>
-              </Col>
-              <Col>
-                <Form.Group>
-                  <Form.Label htmlFor='amount'>*Amount:</Form.Label>
-                  <Form.Control
-                    name='amount'
-                    type='number'
-                    placeholder=''
-                    value={this.state.amount}
-                    onChange={this.handleChange}
-                    required
-                  />
-                </Form.Group>
-              </Col>
-              <Col>
-                <Form.Group>
-                  <Form.Label htmlFor='item'>*Item:</Form.Label>
-                  <Form.Control
-                    placeholder=''
-                    name='item'
-                    value={this.state.item}
-                    onChange={this.handleChange}
-                    required
-                  />
-                </Form.Group>
-              </Col>
-              <Col>
-                <Form.Group>
-                  <Form.Label htmlFor='comment'>Comment (Optional):</Form.Label>
-                  <Form.Control
-                    name='comment'
-                    placeholder=''
-                    value={this.state.comment}
-                    onChange={this.handleChange}
-                  />
-                </Form.Group>
-              </Col>
-              <Col>
+        <Form id='expense-form' onSubmit={this.handleSubmit}>
+          <Form.Row>
+            <Col>
+              <Form.Group>
+                <Form.Label htmlFor='date'>*Date:</Form.Label>
+                <Form.Control
+                  name='date'
+                  type='date'
+                  placeholder=''
+                  value={this.state.date}
+                  onChange={this.handleChange}
+                  required
+                />
+              </Form.Group>
+            </Col>
+            <Col>
+              <Form.Group>
+                <Form.Label htmlFor='amount'>*Amount:</Form.Label>
+                <Form.Control
+                  name='amount'
+                  type='number'
+                  placeholder=''
+                  value={this.state.amount}
+                  onChange={this.handleChange}
+                  required
+                />
+              </Form.Group>
+            </Col>
+            <Col>
+              <Form.Group>
+                <Form.Label htmlFor='item'>*Item:</Form.Label>
+                <Form.Control
+                  placeholder=''
+                  name='item'
+                  value={this.state.item}
+                  onChange={this.handleChange}
+                  required
+                />
+              </Form.Group>
+            </Col>
+            <Col>
+              <Form.Group>
+                <Form.Label htmlFor='comment'>Comment (Optional):</Form.Label>
+                <Form.Control
+                  name='comment'
+                  placeholder=''
+                  value={this.state.comment}
+                  onChange={this.handleChange}
+                />
+              </Form.Group>
+            </Col>
+            <Col>
+              <Form.Group>
                 <Button type='submit' variant='primary'>Add Expense</Button>
-              </Col>
-            </Form.Row>
-          </Form>
-        </Row>
+              </Form.Group>
+            </Col>
+          </Form.Row>
+        </Form>
 
         <ExpenseTable expenses={this.state.expenses} delete={( this.deleteItem )} />
       </Container>
