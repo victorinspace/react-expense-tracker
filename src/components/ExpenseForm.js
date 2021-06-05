@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Col, Row, Form, Button } from 'react-bootstrap';
+import { Container, Col, Form, Button } from 'react-bootstrap';
 import ExpenseTable from './ExpenseTable';
 
 class ExpenseForm extends React.Component {
@@ -114,9 +114,9 @@ class ExpenseForm extends React.Component {
                 />
               </Form.Group>
             </Col>
-            <Col style={{ marginTop: '32px' }}>
+            <Col>
               <Form.Group>
-                <Button type='submit' variant='primary'>Add Expense</Button>
+                <Button style={{ marginTop: '32px' }} type='submit' variant='primary'>Add Expense</Button>
               </Form.Group>
             </Col>
           </Form.Row>
