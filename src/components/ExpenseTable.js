@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Col, Row, Button, Table } from 'react-bootstrap';
+import { Col, Row, Button, Table } from 'react-bootstrap';
 
 const ExpenseTable = ( props ) => {
   console.log( 'props: ', props );
