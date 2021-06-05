@@ -62,7 +62,7 @@ class ExpenseForm extends React.Component {
 
   render () {
     return (
-      <Container fluid>
+      <Container className="mt-5" fluid>
         <Form id='expense-form' onSubmit={this.handleSubmit}>
           <Form.Row>
             <Col>
