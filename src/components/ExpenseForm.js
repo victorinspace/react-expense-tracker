@@ -62,7 +62,7 @@ class ExpenseForm extends React.Component {
 
   render () {
     return (
-      <Container className="mt-5" fluid>
+      <Container className="pt-5" fluid>
         <Form id='expense-form' onSubmit={this.handleSubmit}>
           <Form.Row>
             <Col>
@@ -116,7 +116,7 @@ class ExpenseForm extends React.Component {
             </Col>
             <Col>
               <Form.Group>
-                <Button style={{ marginTop: '32px' }} type='submit' variant='primary'>Add Expense</Button>
+                <Button style={{ paddingTop: '32px' }} type='submit' variant='primary'>Add Expense</Button>
               </Form.Group>
             </Col>
           </Form.Row>
