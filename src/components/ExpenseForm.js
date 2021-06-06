@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Container, Col, Form, Button } from 'react-bootstrap';
 import ExpenseTable from './ExpenseTable';
 
-class ExpenseForm extends React.Component {
+class ExpenseForm extends Component {
   constructor( props ) {
     super( props );
     this.state = {
@@ -18,14 +18,9 @@ class ExpenseForm extends React.Component {
     this.deleteItem = this.deleteItem.bind( this );
   }
 
-  componentDidMount () {
-    console.log( 'form:', this.state.form );
-    console.log( 'id', Date.now() )
-  }
-
   handleChange ( e ) {
     const { name, value } = e.target;
-    console.log( 'name: ', name, 'value: ', value );
+
     this.setState( {
       [name]: value
     } )
@@ -53,7 +48,6 @@ class ExpenseForm extends React.Component {
 
   deleteItem ( id ) {
     const removedItem = this.state.expenses.filter( expense => expense.id !== id );
-    console.log( 'Removed item: ', removedItem );
 
     this.setState( {
       expenses: removedItem
