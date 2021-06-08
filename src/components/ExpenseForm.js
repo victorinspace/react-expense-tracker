@@ -110,7 +110,7 @@ class ExpenseForm extends Component {
             </Col>
             <Col>
               <Form.Group>
-                <Button style={{ paddingTop: '32px' }} type='submit' variant='primary'>Add Expense</Button>
+                <Button style={{ marginTop: '25px' }} type='submit' variant='primary'>Add Expense</Button>
               </Form.Group>
             </Col>
           </Form.Row>

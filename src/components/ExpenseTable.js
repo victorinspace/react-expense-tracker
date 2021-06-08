@@ -2,8 +2,6 @@ import React from 'react';
 import { Col, Row, Button, Table } from 'react-bootstrap';
 
 const ExpenseTable = ( props ) => {
-  console.log( 'props: ', props );
-
   return (
     <div>
       <Row>
