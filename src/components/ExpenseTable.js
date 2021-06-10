@@ -1,7 +1,8 @@
 import React from 'react';
-import { Col, Row, Button, Table } from 'react-bootstrap';
+import { Col, Row, Table } from 'react-bootstrap';
+import ExpenseRow from './ExpenseRow';
 
-const ExpenseTable = ( props ) => {
+const ExpenseTable = ( { expenses, deleteItem } ) => {
   return (
     <div>
       <Row>
@@ -18,20 +19,7 @@ const ExpenseTable = ( props ) => {
             </thead>
 
             <tbody>
-              {props.expenses.map( ( expenseItem ) => {
-                const { id, date, amount, item, comment } = expenseItem;
-                return (
-                  <tr key={id}>
-                    <td>{date}</td>
-                    <td>$ {amount}</td>
-                    <td>{item}</td>
-                    <td>{comment}</td>
-                    <td>
-                      <Button onClick={() => props.delete( id )} type='submit' variant='danger'>delete</Button>
-                    </td>
-                  </tr>
-                )
-              } )}
+              <ExpenseRow expenses={expenses} deleteItem={deleteItem} />
             </tbody>
           </Table>
         </Col>
